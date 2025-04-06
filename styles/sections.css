@@ -3,12 +3,12 @@ section header{
     padding-block: 12px 24px;
     font: var(--text-span);
 
-    a {
+    & a {
         justify-self: end;
         align-items: center;
         gap: 8px;
 
-        span {
+        & span {
             background-image: url(../assets/icons/ArrowRight.svg);
             height: 16px;
             width: 16px;
@@ -22,12 +22,13 @@ section header{
 
 #featured {
     grid-area: featured;
-    img {
+
+    & img {
         height: 100%;
-        object-fit: cover;
+        object-fit: hidden;
     }
     
-    .card {
+    & .card {
         border-radius: 4px;
         position: relative;
         overflow: hidden;
@@ -43,7 +44,7 @@ section header{
             );
         }
 
-        figcaption {
+        & figcaption {
             position: absolute;
             bottom: 0;
 
@@ -53,7 +54,7 @@ section header{
                 padding: 12px;
             }
 
-            h2 {
+            & h2 {
                 margin-top: 8px;
             }
         }
@@ -62,24 +63,21 @@ section header{
 
 #weekly {
     grid-area: weekly;
-    &>div {
-        grid-template-columns: repeat(4, 292px);
-    }
 
-    img {
+    & img {
         height: 160px;
     }
 
-    figure {
+    & figure {
         position: relative;
 
-        .content-tag {
+        & .content-tag {
             position: absolute;
             top: 8px;
             left: 8px;
         }
 
-        p {
+        & p {
             margin-top: 8px;
             font-weight: 800;
         }
@@ -88,13 +86,13 @@ section header{
 
 #ai {
     grid-area: ai;
-    img {
+    & img {
         width: 176px;
         aspect-ratio: 1/1;
         object-fit: cover;
     }
 
-    h3 {
+    & h3 {
         margin-block: 8px 4px;
     }
 }
@@ -105,12 +103,54 @@ aside {
 
 #more {
     margin-top: 32px;
-    h3 {
+    & h3 {
         margin-top: 8px;
     }
-    img {
+
+    & img {
         width: 72px;
         aspect-ratio: 1/1;
         object-fit: cover;
+    }
+}
+
+@media (width < 50em) {
+    #featured {
+
+        & img {
+            width: 100vw;
+            object-fit: cover;
+        }
+
+        & > figure:first-child {
+            height: 510px;
+        }
+    }
+
+    #weekly {
+        & img {
+            width: 100vw;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    #ai {
+        & article {
+            max-height: 164px;
+            object-fit: fill;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        & img {
+            width: 80px;
+            height: 80px;
+        }
+
+        & .image-formate {
+            min-width: 80px;
+        }
+        
     }
 }

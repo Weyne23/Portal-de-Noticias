@@ -42,6 +42,7 @@ h1, h2, h3 {
 img {
     max-width: 100%;
 }
+
 .container {
     max-width: 1280px;
     padding-inline: 32px;
@@ -71,4 +72,20 @@ main {
     letter-spacing: 0.04em;
     color: var(--text-color-primary);
     box-shadow:0px 4px 16pxrgba(2, 6, 23, 0.25);
+}
+
+@media (width < 50em) {
+    .container {
+        padding-inline: 16px;
+    }
+
+    main {
+        grid-template-areas: 
+        "featured featured"
+        "weekly weekly"
+        "ai ai"
+        "aside aside";
+
+        row-gap: 32px;
+    }
 }

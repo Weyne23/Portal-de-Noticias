@@ -21,6 +21,14 @@
     gap: 32px;
 }
 
+.items-center {
+    align-items: center;
+}
+
+.content-center {
+    place-content: center;
+}
+
 .text-2xl {
     font: var(--h1);
 }
@@ -35,4 +43,33 @@
 
 .text-sm {
     font: var(--text-sm);
+}
+
+.even-columns {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+
+.desktop-only {
+    display: inherit;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (width < 50em) {
+    .even-columns {
+        grid-auto-flow: row;
+        gap: 1rem;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: inherit;
+    }
 }
